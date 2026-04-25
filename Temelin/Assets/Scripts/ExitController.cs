@@ -11,10 +11,11 @@ public class ExitController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKey("escape"))
-        //{
-        //    Debug.Log("QUITTING");
-        //    Application.Quit();
-        //}
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("QUITTING");
+            Application.Quit();
+        }    
     }
+
 }

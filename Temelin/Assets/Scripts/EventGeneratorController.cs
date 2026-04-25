@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class EventGeneratorController : MonoBehaviour
 {
@@ -22,6 +20,17 @@ public class EventGeneratorController : MonoBehaviour
     [SerializeField]
     Transform eventParent;
 
+    [SerializeField]
+    float startingTime;
+
+    [SerializeField]
+    float minimumTime;
+
+    float spacing;
+
+    [SerializeField]
+    float decreaseTimeBy;
+
     List<EventController> currentlyActiveEvents;
     List<Transform> spawnPoints;
 
@@ -41,7 +50,8 @@ public class EventGeneratorController : MonoBehaviour
         }
 
         currentlyActiveEvents = new List<EventController>();
-        timer = Random.value * 5;
+        timer = Random.value * minimumTime;
+        spacing = startingTime;
     }
 
     // Update is called once per frame
@@ -51,7 +61,10 @@ public class EventGeneratorController : MonoBehaviour
         if (timer < 0)
         {
             GenerateNewEvent();
-            timer = 2  + Random.value * 5;
+            timer = minimumTime + Random.value * spacing;
+            spacing -= decreaseTimeBy;
+
+            Debug.Log("min: " + minimumTime + " max: " + (minimumTime + spacing));
         }
 
         for (int i = 0; i < currentlyActiveEvents.Count; ++i)

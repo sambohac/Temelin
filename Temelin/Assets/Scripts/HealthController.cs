@@ -8,6 +8,6 @@ public class HealthController : MonoBehaviour
 
     public void UpdateHealth(int  health)
     {
-        healthText.text = $"{health}hp";
+        healthText.text = $"{health}";
     }
 }

@@ -27,16 +27,11 @@ public class VideoController : MonoBehaviour
     private void OnLoopPointReached(VideoPlayer source)
     {
         Debug.Log("Start game");
-    }
-
-    private void LoadGame(VideoPlayer source)
-    {
-        Debug.Log("Start game");
         SceneManager.LoadScene(gameScene);
     }
 
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void Update()
     {
         
     }

@@ -836,12 +836,12 @@ PrefabInstance:
       objectReference: {fileID: 734836211}
     - target: {fileID: 3231987403579869614, guid: 9f95931af0ae94546a2935839f39adab, type: 3}
       propertyPath: availibleEvents.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3231987403579869614, guid: 9f95931af0ae94546a2935839f39adab, type: 3}
       propertyPath: 'availibleEvents.Array.data[0]'
       value: 
-      objectReference: {fileID: 4445420382116369984, guid: 2f2b505451790624a863c0cde7743eb3, type: 3}
+      objectReference: {fileID: 4445420382116369984, guid: b49ee6231f190624b987bbfed911630f, type: 3}
     - target: {fileID: 3231987403579869614, guid: 9f95931af0ae94546a2935839f39adab, type: 3}
       propertyPath: 'availibleEvents.Array.data[1]'
       value: 
@@ -1801,7 +1801,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -8019570110419451752, guid: 99369deef282ad04ba79746aadc43aa8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2128,6 +2128,8 @@ MonoBehaviour:
   powerplant: {fileID: 1980899305}
   characterPrefab: {fileID: 3485971123071190346, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
   hurtScreen: {fileID: 214137037}
+  winScene: 4
+  endScene: 3
   characters:
   - {fileID: 1499138458}
   - {fileID: 694978924}
@@ -2161,8 +2163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3761e039ec7cbb2498365fed5c554498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventGeneratorController
-  startArea: {fileID: 723351637}
-  endArea: {fileID: 419380892}
+  successAnim: {fileID: 1366483712808128675, guid: 8fb5e196f14da6a4fb0f216c47505aa6, type: 3}
   powerplant: {fileID: 1980899305}
   spawnPointParent: {fileID: 1899916758}
   sprite: {fileID: 4179932331289747962, guid: 591e9b03c48fe9d469d901ea3bd6ac2b, type: 3}
@@ -2483,7 +2484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Powerplant
   maxHp: 100
-  maxTimeSeconds: 60
+  maxTimeSeconds: 30
   timeController: {fileID: 1271933110}
   healthController: {fileID: 1271933109}
 --- !u!4 &1980899306
@@ -2517,6 +2518,7 @@ GameObject:
   - component: {fileID: 2092365393}
   - component: {fileID: 2092365396}
   - component: {fileID: 2092365397}
+  - component: {fileID: 2092365398}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2658,6 +2660,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
+--- !u!114 &2092365398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092365392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3936e7d3f2734c4a937aa3ed861f972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitController
 --- !u!1001 &5706410304993603294
 PrefabInstance:
   m_ObjectHideFlags: 0

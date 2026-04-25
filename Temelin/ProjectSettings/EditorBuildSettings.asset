@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/GameOverScene.unity
     guid: 2b19b1d6f61d7164c83ee2d83e24d05a
   - enabled: 1
+    path: Assets/Scenes/EndAnimationScene.unity
+    guid: 03889b15bd83a2140a919a129bc79149
+  - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: e95ecc9fa85c230458ccddd05564096e
   m_configObjects:

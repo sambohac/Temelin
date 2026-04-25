@@ -15,12 +15,18 @@ public class GameLoopController : MonoBehaviour
     [SerializeField]
     SpriteRenderer hurtScreen;
 
+    [SerializeField]
+    int winScene;
+    [SerializeField]
+    int endScene;
 
     [SerializeField]
     CharacterController[] characters;
 
     [SerializeField]
     EventGeneratorController eventGeneratorController;
+
+    bool fading;
 
     string characterSource;
 
@@ -39,6 +45,11 @@ public class GameLoopController : MonoBehaviour
         StartGame();
     }
 
+    private void Update()
+    {
+        
+    }
+
     public void StartGame()
     {
         powerplant.StartPowerplant();
@@ -46,12 +57,12 @@ public class GameLoopController : MonoBehaviour
 
     public void EndGame()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(endScene);
     }
 
     public void WinGame()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(winScene);
     }
 
     internal void EventSolved(EventController ec)
@@ -67,6 +78,12 @@ public class GameLoopController : MonoBehaviour
 
     private IEnumerator FadeOut()
     {
+        while (fading)
+        {
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        fading = true;
         float alphaVal = hurtScreen.color.a;
         Color tmp = hurtScreen.color;
 
@@ -78,10 +95,18 @@ public class GameLoopController : MonoBehaviour
 
             yield return new WaitForSeconds(0.05f); // update interval
         }
+        fading = false;
     }
 
     private IEnumerator FadeIn()
     {
+
+        while (fading)
+        {
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        fading = true;
         float alphaVal = hurtScreen.color.a;
         Color tmp = hurtScreen.color;
 
@@ -93,6 +118,7 @@ public class GameLoopController : MonoBehaviour
 
             yield return new WaitForSeconds(0.05f); // update interval
         }
+        fading= false;
 
         StartCoroutine(FadeOut());
     }

@@ -4,9 +4,7 @@ using UnityEngine;
 public class EventGeneratorController : MonoBehaviour
 {
     [SerializeField]
-    GameObject startArea;
-    [SerializeField]
-    GameObject endArea;
+    GameObject successAnim;
 
     [SerializeField]
     Powerplant powerplant;
@@ -110,6 +108,9 @@ public class EventGeneratorController : MonoBehaviour
         ec.spawnpoint.RemoveEvent();
         if (index >= 0)
         {
+            GameObject success = Instantiate(successAnim);
+            success.transform.position += ec.transform.position;
+
             // die
             Destroy(ec.thisEvent.text);
             Destroy(ec.transform.gameObject);

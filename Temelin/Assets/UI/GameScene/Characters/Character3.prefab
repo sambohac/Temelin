@@ -35,6 +35,7 @@ Transform:
   - {fileID: 8047890481469788506}
   - {fileID: 6031813104057495337}
   - {fileID: 2363119566234639353}
+  - {fileID: 4811885173961516637}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5350177873477217717
@@ -56,6 +57,8 @@ MonoBehaviour:
   textSkill: {fileID: 6479978573186186666, guid: 4d636b638df555341a56fe45f1075505, type: 3}
   textEventParent: {fileID: 0}
   representation: {fileID: 4633547563591531584}
+  progressHolder: {fileID: 4811885173961516637}
+  progressBar: {fileID: 6482131168878713438, guid: 3139f18b2b9548c41ace9dfd4e5baaa1, type: 3}
   characterName: 
   strength: 0
   intelect: 0
@@ -188,7 +191,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 7
   m_MaskInteraction: 0
   m_Sprite: {fileID: -8951383523087240050, guid: 52fb699be4f45c14d89c34e99d2df209, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -364,7 +367,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 6
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7895507111814409382, guid: ee7f3b8e100d9224fa715d779bbe38a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -455,7 +458,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 6
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7911089308314155914, guid: c6f44a53816248840b5ec8184767c84a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -467,6 +470,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &5935613479476419273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4811885173961516637}
+  m_Layer: 0
+  m_Name: ProgressBarHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4811885173961516637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935613479476419273}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.3199999, y: 0.9319999, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1258172231547618132}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6881242127109485847
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,7 +580,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 6
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3735926134784013096, guid: 02eb505c4e22975459e0645aaf200231, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

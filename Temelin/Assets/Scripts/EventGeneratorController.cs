@@ -50,7 +50,7 @@ public class EventGeneratorController : MonoBehaviour
         }
 
         currentlyActiveEvents = new List<EventController>();
-        timer = Random.value * minimumTime;
+        timer = 2 + Random.value * minimumTime;
         spacing = startingTime;
     }
 

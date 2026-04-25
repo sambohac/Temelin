@@ -41,6 +41,11 @@ public class CharacterController : MonoBehaviour, IPointerClickHandler, IBeginDr
     GameObject representation;
 
     [SerializeField]
+    Transform progressHolder;
+    [SerializeField]
+    GameObject progressBar;
+
+    [SerializeField]
     string characterName;
 
     [SerializeField]
@@ -120,10 +125,15 @@ public class CharacterController : MonoBehaviour, IPointerClickHandler, IBeginDr
         else
         {
             Debug.Log(characterName + ": Working on it!");
+
             icon.SetActive(false);
             hurtIcon.SetActive(false);
             inactiveIcon.SetActive(true);
         }
+
+        GameObject prg = Instantiate(progressBar, progressHolder);
+        prg.GetComponent<AnimationAutodestroy>().multiplier = eventToSolve.timeToSolve;
+        prg.GetComponent<Animator>().SetFloat("speedAnim", 1.0f / eventToSolve.timeToSolve);
 
         gameLoopController.EventSolved(ec);
         cooldown = eventToSolve.timeToSolve;

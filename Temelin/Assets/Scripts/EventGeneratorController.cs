@@ -51,7 +51,7 @@ public class EventGeneratorController : MonoBehaviour
         if (timer < 0)
         {
             GenerateNewEvent();
-            timer = 2 + Random.value * 5;
+            timer = 2  + Random.value * 5;
         }
 
         for (int i = 0; i < currentlyActiveEvents.Count; ++i)

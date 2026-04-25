@@ -22,7 +22,11 @@ internal class Character
 public class CharacterController : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField]
-    Sprite icon;
+    GameObject icon;
+    [SerializeField]
+    GameObject inactiveIcon;
+    [SerializeField]
+    GameObject hurtIcon;
 
     [SerializeField]
     GameObject skillsPanel;
@@ -74,6 +78,9 @@ public class CharacterController : MonoBehaviour, IPointerClickHandler
         if (cooldown <= 0 && inUse)
         {
             inUse = false;
+            inactiveIcon.SetActive(false);
+            hurtIcon.SetActive(false);
+            icon.SetActive(true);
             Debug.Log(characterName + ": Im ready!");
         }
     }
@@ -105,10 +112,19 @@ public class CharacterController : MonoBehaviour, IPointerClickHandler
         if (!eventToSolve.CanCharacterSolve(character))
         {
             Debug.Log(characterName + ": OUCH!!");
+            icon.SetActive(false);
+            inactiveIcon.SetActive(false);
+            hurtIcon.SetActive(true);
             gameLoopController.HurtPowerPlant(eventToSolve.damage);
         }
+        else
+        {
+            Debug.Log(characterName + ": Working on it!");
+            icon.SetActive(false);
+            hurtIcon.SetActive(false);
+            inactiveIcon.SetActive(true);
+        }
 
-        Debug.Log(characterName + ": Working on it!");
         gameLoopController.EventSolved(ec);
         cooldown = eventToSolve.timeToSolve;
         inUse = true;

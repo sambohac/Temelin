@@ -231,6 +231,18 @@ PrefabInstance:
       propertyPath: textEventParent
       value: 
       objectReference: {fileID: 734836211}
+    - target: {fileID: 5723966598753191249, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6031813104057495337, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6031813104057495337, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8186094167456275218, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 3.6
@@ -1134,6 +1146,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character2
       objectReference: {fileID: 0}
+    - target: {fileID: 4491772825417073308, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 428579118985126955, guid: 55e00768313223e419477717b2e311a1, type: 3}
     - target: {fileID: 5177250536069261989, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.6
@@ -1182,6 +1198,26 @@ PrefabInstance:
       propertyPath: textEventParent
       value: 
       objectReference: {fileID: 734836211}
+    - target: {fileID: 5590772715410343489, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3973393464943833988, guid: 97fc6f4193226fe469dcf39408e7e90d, type: 3}
+    - target: {fileID: 6031813104057495337, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6031813104057495337, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047890481469788506, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047890481469788506, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8186094167456275218, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 3.6
@@ -2153,6 +2189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character3
       objectReference: {fileID: 0}
+    - target: {fileID: 4491772825417073308, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2600485079041590265, guid: 23a076b16e56c8b4db1c08ca0f036275, type: 3}
     - target: {fileID: 5177250536069261989, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.6
@@ -2197,6 +2237,26 @@ PrefabInstance:
       propertyPath: textEventParent
       value: 
       objectReference: {fileID: 734836211}
+    - target: {fileID: 5590772715410343489, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5564810636696733854, guid: f21cbef1c2eb5cc40b533fb2e62027bd, type: 3}
+    - target: {fileID: 6031813104057495337, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6031813104057495337, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047890481469788506, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047890481469788506, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8071140548930225649, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: m_IsActive
       value: 1

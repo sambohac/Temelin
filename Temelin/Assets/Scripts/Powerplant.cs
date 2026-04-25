@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
@@ -19,7 +18,7 @@ public class Powerplant : MonoBehaviour
     [SerializeField]
     HealthController healthController;
 
-    internal bool isExploded;
+    internal GameLoopController gameLoopController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,14 +41,21 @@ public class Powerplant : MonoBehaviour
     {
         UpdateTime();
 
-        if (timeLimit == 0 || hp == 0)
+        if (timeLimit == 0)
+            WinGame();
+
+        if (hp == 0)
             GameOver();
+    }
+
+    private void WinGame()
+    {
+        gameLoopController.WinGame();
     }
 
     private void GameOver()
     {
-        Debug.Log("KONEC");
-        isExploded = true;
+        gameLoopController.EndGame();
     }
 
     private void UpdateTime()

@@ -321,22 +321,6 @@ PrefabInstance:
       value: Character1
       objectReference: {fileID: 0}
     - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: stat1
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: stat2
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: stat3
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: characterName
-      value: Zmrd
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: textEventParent
       value: 
       objectReference: {fileID: 734836211}
@@ -1018,22 +1002,6 @@ PrefabInstance:
     - target: {fileID: 3485971123071190346, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: m_Name
       value: Character2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: stat1
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: stat2
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: stat3
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: characterName
-      value: "\u010Cur\xE1k"
       objectReference: {fileID: 0}
     - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: textEventParent
@@ -2353,24 +2321,12 @@ PrefabInstance:
       value: Character3
       objectReference: {fileID: 0}
     - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: stat1
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: stat3
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: characterName
-      value: "Kret\xE9n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: textEventParent
       value: 
       objectReference: {fileID: 734836211}
     - target: {fileID: 8071140548930225649, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

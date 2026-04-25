@@ -1,4 +1,7 @@
 
+using System;
+using UnityEngine;
+
 public class Skill
 {
     internal Stats stat1;
@@ -6,6 +9,9 @@ public class Skill
 
     internal Stats stat2;
     internal int value2;
+
+    internal GameObject icon;
+    internal GameObject textIcon;
 
     public Skill()
     {
@@ -24,4 +30,11 @@ public class Skill
     {
         return $"{stat1} {value1}\n{stat2} {value2}";
     }
+
+    public void Move(Vector3 newPos)
+    {
+        icon.transform.position = newPos;
+        textIcon.transform.position = newPos;
+    }
+
 }

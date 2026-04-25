@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8003891298989820243}
   - component: {fileID: -901176153050998208}
   - component: {fileID: -6523674229182378380}
+  - component: {fileID: 1905995737683227493}
   m_Layer: 0
-  m_Name: intelekt_0
-  m_TagString: Untagged
+  m_Name: Event
+  m_TagString: event
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,3 +167,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1905995737683227493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4179932331289747962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e85af94c04813479c769f3feaefdba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventController

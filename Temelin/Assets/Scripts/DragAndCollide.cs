@@ -1,27 +1,23 @@
-using NUnit.Framework;
-using System;
 using System.Collections.Generic;
+using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DragAndCollide : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    internal Vector3 startPos;
     private Vector3 offset;
     List<Transform> collidings;
+
+    internal CharacterController originatingCharacter;
 
     private void Start()
     {
         collidings = new List<Transform>();
     }
 
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("TRIGGER!!");
         collidings.Add(collision.transform);
     }
 
@@ -33,11 +29,28 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log(collidings.Count);
+
+        if (collidings.Count == 0)
+        {
+            originatingCharacter.MoveRepresentation(startPos);
+            return;
+        }
+
+        for (int i = 0; i < collidings.Count; i++)
+        {
+            if (collidings[i].transform.tag == "event")
+            {
+                EventPowerplant collidedEvent = collidings[i].transform.GetComponent<EventController>().thisEvent;
+                originatingCharacter.UseCharacter(collidedEvent);
+                originatingCharacter.MoveRepresentation(startPos);
+            }
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = GetMouseWorldPosition(eventData) + offset;
+        // transform.position = GetMouseWorldPosition(eventData) + offset;
+        originatingCharacter.MoveRepresentation(GetMouseWorldPosition(eventData) + offset);
     }
 
     public void OnBeginDrag(PointerEventData eventData)

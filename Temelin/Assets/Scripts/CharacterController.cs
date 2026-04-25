@@ -1,26 +1,20 @@
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.U2D;
 
 internal class Character
 {
-    internal string pathToIcon;
-    internal List<Skill> skills;
+    internal int stat1;
+    internal int stat2;
+    internal int stat3;
 
-    public Character()
+    public Character(int stat1, int stat2, int stat3)
     { 
-        skills = new List<Skill>();
+        this.stat1 = stat1; this.stat2 = stat2; this.stat3 = stat3;
     }
 
     public override string ToString()
     {
-        string data = pathToIcon + "\n";
-        for (int i = 0; i < skills.Count; i++)
-        {
-            data += skills[i].ToString() + "\n";
-        }
+        string data = $"stat1: {stat1} \nstat2: {stat2} \nstat3: {stat3}";
         return data;
     }
 }
@@ -40,32 +34,48 @@ public class CharacterController : MonoBehaviour, IPointerClickHandler
     Transform textEventParent;
 
     [SerializeField]
-    GameObject[] slots;
-    List<Skill> skills;
-    List<GameObject> textSkills;
+    GameObject representation;
+
+    [SerializeField]
+    string characterName;
+
+    [SerializeField]
+    int stat1;
+    [SerializeField]
+    int stat2;
+    [SerializeField]
+    int stat3;
+
+    bool inUse;
+    float cooldown;
 
     internal Character character;
     internal ActionController actionController;
+    internal GameLoopController gameLoopController; // set during awake
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        skills = new List<Skill>();
-        for (int i = 0; i < slots.Length; i++)
-        {
-            Skill currSkill = new Skill();
-            currSkill.stat1 = (Stats)(Random.value * 3);
-            currSkill.value1 = (int)(Random.value * 10);
-            currSkill.stat2 = (Stats)(Random.value * 3);
-            currSkill.value2 = (int)(Random.value * 10);
-            skills.Add(currSkill);
-        }
+        character = new Character(stat1, stat2, stat3);
+
+        DragAndCollide dragger = representation.GetComponent<DragAndCollide>();
+        dragger.startPos = representation.transform.position;
+        dragger.originatingCharacter = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (inUse)
+        {
+            cooldown -= Time.deltaTime;
+        }
+
+        if (cooldown <= 0 && inUse)
+        {
+            inUse = false;
+            Debug.Log(characterName + ": Im done working!");
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -76,25 +86,36 @@ public class CharacterController : MonoBehaviour, IPointerClickHandler
 
     internal void ShowActions()
     {
-        skillsPanel.SetActive(!skillsPanel.activeInHierarchy);
-        textSkills = new List<GameObject>();
-        for (int i = 0; i < slots.Length; i++)
-        {
-            var spawnPos = slots[i].transform.position;
-            GameObject text = Instantiate(textSkill, spawnPos, new Quaternion(), textEventParent);
-            Debug.Log(skills.Count);
-            text.GetComponent<TMP_Text>().text = skills[i].ToString();
-
-            textSkills.Add(text);
-        }
+        Debug.Log(characterName + ": " + character.ToString());
     }
 
     internal void HideActions()
     {
-        skillsPanel.SetActive(!skillsPanel.activeInHierarchy);
-        for (int i = 0; i < slots.Length; i++)
+
+    }
+
+    internal void UseCharacter(EventPowerplant eventToSolve)
+    {
+        if (inUse)
         {
-            Destroy(textSkills[i]);
+            Debug.Log(characterName + ": Im on cooldown");
+            return;
         }
+
+        if (!eventToSolve.CanCharacterSolve(character))
+        {
+            Debug.Log(characterName + ": OUCH!!");
+            gameLoopController.HurtPowerPlant(eventToSolve.damage);
+        }
+
+        Debug.Log(characterName + ": Working on it!");
+        gameLoopController.EventSolved(eventToSolve);
+        cooldown = eventToSolve.timeToSolve;
+        inUse = true;
+    }
+
+    internal void MoveRepresentation(Vector3 startPos)
+    {
+        representation.transform.position = startPos;
     }
 }

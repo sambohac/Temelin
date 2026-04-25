@@ -64,7 +64,7 @@ public class EventGeneratorController : MonoBehaviour
             timer = minimumTime + Random.value * spacing;
             spacing -= decreaseTimeBy;
 
-            Debug.Log("min: " + minimumTime + " max: " + (minimumTime + spacing));
+            // Debug.Log("min: " + minimumTime + " max: " + (minimumTime + spacing));
         }
 
         for (int i = 0; i < currentlyActiveEvents.Count; ++i)

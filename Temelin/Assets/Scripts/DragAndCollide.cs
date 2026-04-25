@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragAndCollide : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DragAndCollide : MonoBehaviour
 {
     internal Vector3 startPos;
     private Vector3 offset;
@@ -53,12 +52,13 @@ public class DragAndCollide : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     public void OnDrag(PointerEventData eventData)
     {
         // transform.position = GetMouseWorldPosition(eventData) + offset;
-        originatingCharacter.MoveRepresentation(GetMouseWorldPosition(eventData) + offset);
+        originatingCharacter.MoveRepresentation(GetMouseWorldPosition(eventData));
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        offset = transform.position - GetMouseWorldPosition(eventData);
+        originatingCharacter.MoveRepresentation(GetMouseWorldPosition(eventData));
+        // offset = transform.position - GetMouseWorldPosition(eventData);
     }
 
     private Vector3 GetMouseWorldPosition(PointerEventData eventData)

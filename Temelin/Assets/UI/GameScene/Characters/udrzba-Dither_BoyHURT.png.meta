@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ee7f3b8e100d9224fa715d779bbe38a4
+guid: a9936e40a1274454eb85759439374bf0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7895507111814409382
-    second: "recep\u010Dn\xED-Dither_BoyINACTIVE_0"
+      213: 4508564477940851356
+    second: udrzba-Dither_BoyHURT_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "recep\u010Dn\xED-Dither_BoyINACTIVE_0"
+      name: udrzba-Dither_BoyHURT_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a535bbe2d168d6290800000000000000
-      internalID: -7895507111814409382
+      spriteID: c92eb9a5183a19e30800000000000000
+      internalID: 4508564477940851356
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "recep\u010Dn\xED-Dither_BoyINACTIVE_0": -7895507111814409382
+      udrzba-Dither_BoyHURT_0: 4508564477940851356
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

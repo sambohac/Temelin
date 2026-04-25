@@ -19,7 +19,7 @@ internal class Character
     }
 }
 
-public class CharacterController : MonoBehaviour, IPointerClickHandler
+public class CharacterController : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField]
     GameObject icon;
@@ -87,8 +87,8 @@ public class CharacterController : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        actionController.ChangeActiveCharacter(this);
-        Debug.Log("Clicked on me");
+        // actionController.ChangeActiveCharacter(this);
+        //Debug.Log(name + ": Clicked on me!");
     }
 
     internal void ShowActions()
@@ -133,5 +133,21 @@ public class CharacterController : MonoBehaviour, IPointerClickHandler
     internal void MoveRepresentation(Vector3 startPos)
     {
         representation.transform.position = startPos;
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        representation.GetComponent<DragAndCollide>().OnDrag(eventData);
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        representation.GetComponent<DragAndCollide>().OnEndDrag(eventData);
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        Debug.Log(characterName + ": what now?");
+        representation.GetComponent<DragAndCollide>().OnBeginDrag(eventData);
     }
 }

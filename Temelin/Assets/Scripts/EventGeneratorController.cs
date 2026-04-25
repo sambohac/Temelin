@@ -36,6 +36,8 @@ public class EventGeneratorController : MonoBehaviour
 
     float timer;
 
+    internal GameLoopController gameLoopController;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -73,7 +75,7 @@ public class EventGeneratorController : MonoBehaviour
             currEvent.UpdateTime(Time.deltaTime);
             if (currEvent.timer <= 0)
             {
-                powerplant.TakeDamage(currEvent.damage);
+                gameLoopController.HurtPowerPlant(currEvent.damage);
                 Destroy(currEvent.sprite);
                 Destroy(currEvent.text);
 

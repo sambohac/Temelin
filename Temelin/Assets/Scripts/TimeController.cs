@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using TMPro.EditorUtilities;
 
 public class TimeController : MonoBehaviour
 {
@@ -27,7 +26,7 @@ public class TimeController : MonoBehaviour
         secs = (int)(timeRes / 1000.0);
         timeRes -= secs * 1000;
 
-        timeText.text = $"{mins}:{secs}:{timeRes}";
+        timeText.text = $"{mins:0}:{secs:00}:{timeRes:000}";
     }
 
 }

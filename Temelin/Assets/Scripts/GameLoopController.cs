@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System;
+using System.Collections;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,9 @@ public class GameLoopController : MonoBehaviour
     Powerplant powerplant;
     [SerializeField]
     GameObject characterPrefab;
+    [SerializeField]
+    SpriteRenderer hurtScreen;
+
 
     [SerializeField]
     CharacterController[] characters;
@@ -31,6 +35,7 @@ public class GameLoopController : MonoBehaviour
 
         // start powerplant
         powerplant.gameLoopController = this;
+        eventGeneratorController.gameLoopController = this;
         StartGame();
     }
 
@@ -57,5 +62,39 @@ public class GameLoopController : MonoBehaviour
     internal void HurtPowerPlant(int damage)
     {
         powerplant.TakeDamage(damage);
+        StartCoroutine(FadeIn());
     }
+
+    private IEnumerator FadeOut()
+    {
+        float alphaVal = hurtScreen.color.a;
+        Color tmp = hurtScreen.color;
+
+        while (hurtScreen.color.a > 0)
+        {
+            alphaVal -= 0.1f;
+            tmp.a = alphaVal;
+            hurtScreen.color = tmp;
+
+            yield return new WaitForSeconds(0.05f); // update interval
+        }
+    }
+
+    private IEnumerator FadeIn()
+    {
+        float alphaVal = hurtScreen.color.a;
+        Color tmp = hurtScreen.color;
+
+        while (hurtScreen.color.a < 1)
+        {
+            alphaVal += 0.1f;
+            tmp.a = alphaVal;
+            hurtScreen.color = tmp;
+
+            yield return new WaitForSeconds(0.05f); // update interval
+        }
+
+        StartCoroutine(FadeOut());
+    }
+
 }

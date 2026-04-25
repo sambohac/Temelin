@@ -212,20 +212,8 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: intelect
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: strength
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: handyness
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: characterName
-      value: Sam
+      value: Zmrd
       objectReference: {fileID: 0}
     - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: textEventParent
@@ -233,19 +221,19 @@ PrefabInstance:
       objectReference: {fileID: 734836211}
     - target: {fileID: 8186094167456275218, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 3.6
+      value: 3.85
       objectReference: {fileID: 0}
     - target: {fileID: 8186094167456275218, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 6.4
+      value: 6.85
       objectReference: {fileID: 0}
     - target: {fileID: 8186094167456275218, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 3.6
+      value: 3.85
       objectReference: {fileID: 0}
     - target: {fileID: 8186094167456275218, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 6.4
+      value: 6.85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1050,7 +1038,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 824893505096300708, guid: 035267eb9adf65a41bb1c7c70f58a70b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1163,20 +1151,8 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: intelect
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: strength
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: handyness
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: characterName
-      value: Jup
+      value: "\u010Cur\xE1k"
       objectReference: {fileID: 0}
     - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: textEventParent
@@ -2178,20 +2154,8 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: intelect
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: strength
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
-      propertyPath: handyness
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: characterName
-      value: Cory
+      value: "Kret\xE9n"
       objectReference: {fileID: 0}
     - target: {fileID: 5350177873477217717, guid: 2dd37c804f2960a458acda6193e99bc7, type: 3}
       propertyPath: textEventParent
@@ -2317,6 +2281,10 @@ PrefabInstance:
     - target: {fileID: 8668457732926681017, guid: 9f95931af0ae94546a2935839f39adab, type: 3}
       propertyPath: m_Name
       value: SpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 8668457732926681017, guid: 9f95931af0ae94546a2935839f39adab, type: 3}
+      propertyPath: m_TagString
+      value: spawnpoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

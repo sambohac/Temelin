@@ -40,11 +40,11 @@ public class CharacterController : MonoBehaviour, IPointerClickHandler
     string characterName;
 
     [SerializeField]
-    int stat1;
+    int strength;
     [SerializeField]
-    int stat2;
+    int intelect;
     [SerializeField]
-    int stat3;
+    int handyness;
 
     bool inUse;
     float cooldown;
@@ -56,7 +56,7 @@ public class CharacterController : MonoBehaviour, IPointerClickHandler
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        character = new Character(stat1, stat2, stat3);
+        character = new Character(strength, intelect, handyness);
 
         DragAndCollide dragger = representation.GetComponent<DragAndCollide>();
         dragger.startPos = representation.transform.position;
@@ -74,7 +74,7 @@ public class CharacterController : MonoBehaviour, IPointerClickHandler
         if (cooldown <= 0 && inUse)
         {
             inUse = false;
-            Debug.Log(characterName + ": Im done working!");
+            Debug.Log(characterName + ": Im ready!");
         }
     }
 
@@ -94,7 +94,7 @@ public class CharacterController : MonoBehaviour, IPointerClickHandler
 
     }
 
-    internal void UseCharacter(EventPowerplant eventToSolve)
+    internal void UseCharacter(PowerplantEvent eventToSolve, EventController ec)
     {
         if (inUse)
         {
@@ -109,7 +109,7 @@ public class CharacterController : MonoBehaviour, IPointerClickHandler
         }
 
         Debug.Log(characterName + ": Working on it!");
-        gameLoopController.EventSolved(eventToSolve);
+        gameLoopController.EventSolved(ec);
         cooldown = eventToSolve.timeToSolve;
         inUse = true;
     }

@@ -1,8 +1,7 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EventGeneratorController : MonoBehaviour
 {
@@ -13,25 +12,35 @@ public class EventGeneratorController : MonoBehaviour
 
     [SerializeField]
     Powerplant powerplant;
+    
+    [SerializeField]
+    Transform spawnPointParent;
 
     [SerializeField]
     GameObject sprite;
-    [SerializeField]
-    GameObject text;
 
     [SerializeField]
     Transform eventParent;
-    [SerializeField]
-    Transform textEventParent;
 
-    List<EventPowerplant> currentlyActiveEvents;
+    List<EventController> currentlyActiveEvents;
+    List<Transform> spawnPoints;
 
     float timer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentlyActiveEvents = new List<EventPowerplant>();
+        spawnPoints = new List<Transform>();
+        foreach (Transform child in spawnPointParent.transform)
+        {
+            Debug.Log(child.name);
+            if (child.tag == "spawnpoint")
+            {
+                spawnPoints.Add(child);
+            }
+        }
+
+        currentlyActiveEvents = new List<EventController>();
         timer = Random.value * 5;
     }
 
@@ -42,51 +51,54 @@ public class EventGeneratorController : MonoBehaviour
         if (timer < 0)
         {
             GenerateNewEvent();
-            timer = Random.value * 5;
+            timer = 2 + Random.value * 5;
         }
 
         for (int i = 0; i < currentlyActiveEvents.Count; ++i)
         {
-            EventPowerplant currEvent = currentlyActiveEvents[i];
+            PowerplantEvent currEvent = currentlyActiveEvents[i].thisEvent;
             currEvent.UpdateTime(Time.deltaTime);
             if (currEvent.timer <= 0)
             {
                 powerplant.TakeDamage(currEvent.damage);
                 Destroy(currEvent.sprite);
                 Destroy(currEvent.text);
-                currentlyActiveEvents.Remove(currEvent);
+
+                currentlyActiveEvents[i].spawnpoint.RemoveEvent();
+                currentlyActiveEvents.Remove(currentlyActiveEvents[i]);
             }
         }
     }
 
     private void GenerateNewEvent()
     {
-        EventPowerplant evCurr = new EventPowerplant((Stats)(Random.value * 3), (int)(Random.value * 10),
-                                                     (int)(1 + Random.value * 10), 10 + Random.value * 5, 3 + Random.value * 3);
-        currentlyActiveEvents.Add(evCurr);
+        int index = Random.Range(0, spawnPoints.Count);
+        int maxTries = 50;
+        int its = 0;
+        while (spawnPoints[index].GetComponent<SpawnpointController>().occupied && its < maxTries)
+        {
+            index = Random.Range(0, spawnPoints.Count);
+            its++;
+        }
 
-        float x = Random.Range(startArea.transform.position.x, endArea.transform.position.x);
-        float y = Random.Range(startArea.transform.position.y, endArea.transform.position.y);
-        var spawnPos = new Vector3(x, y, 0);
-
-        GameObject spriteEv = Instantiate(sprite, spawnPos, new Quaternion(), eventParent);
-        GameObject textEv = Instantiate(text, spawnPos, new Quaternion(), textEventParent);
-        textEv.GetComponent<TMP_Text>().text = evCurr.ToString();
-        spriteEv.GetComponent<EventController>().thisEvent = evCurr;
-
-        evCurr.sprite = spriteEv;
-        evCurr.text = textEv;
+        if (spawnPoints[index].GetComponent<SpawnpointController>().occupied)
+            return;
+        
+        Debug.Log("Spawning event on " + index);
+        EventController ec = spawnPoints[index].GetComponent<SpawnpointController>().SpawnRandomEvent();
+        currentlyActiveEvents.Add(ec);   
     }
 
-    internal void RemoveEvent(EventPowerplant collidedEvent)
+    internal void RemoveEvent(EventController ec)
     {
-        int index = currentlyActiveEvents.IndexOf(collidedEvent);
+        int index = currentlyActiveEvents.IndexOf(ec);
+        ec.spawnpoint.RemoveEvent();
         if (index >= 0)
         {
-            Destroy(collidedEvent.sprite);
-            Destroy(collidedEvent.text);
-
-            currentlyActiveEvents.Remove(collidedEvent);
+            // die
+            Destroy(ec.thisEvent.text);
+            Destroy(ec.transform.gameObject);
+            currentlyActiveEvents.Remove(ec);
         }
     }
 }

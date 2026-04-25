@@ -49,9 +49,9 @@ public class GameLoopController : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
-    internal void EventSolved(EventPowerplant solvedEvent)
+    internal void EventSolved(EventController ec)
     {
-        eventGeneratorController.RemoveEvent(solvedEvent);
+        eventGeneratorController.RemoveEvent(ec);
     }
 
     internal void HurtPowerPlant(int damage)

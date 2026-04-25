@@ -18,12 +18,14 @@ public class DragAndCollide : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collidings.Add(collision.transform);
+        if (collision.transform.tag == "event")
+            collidings.Add(collision.transform);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        collidings.Remove(collision.transform);
+        if (collision.transform.tag == "event")
+            collidings.Remove(collision.transform);
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -40,8 +42,9 @@ public class DragAndCollide : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         {
             if (collidings[i].transform.tag == "event")
             {
-                EventPowerplant collidedEvent = collidings[i].transform.GetComponent<EventController>().thisEvent;
-                originatingCharacter.UseCharacter(collidedEvent);
+                EventController ec = collidings[i].transform.GetComponent<EventController>();
+                PowerplantEvent collidedEvent = ec.thisEvent;
+                originatingCharacter.UseCharacter(collidedEvent, ec);
                 originatingCharacter.MoveRepresentation(startPos);
             }
         }
